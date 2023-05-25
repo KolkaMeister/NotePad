@@ -1,0 +1,44 @@
+﻿<Window x:Class="NotePad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotePad"
+        mc:Ignorable="d"
+        Title="NotePad" Height="450" Width="800" Closed="OnExit">
+    <Grid>
+        <DockPanel Margin="1" >
+            <Menu DockPanel.Dock="Top">
+                <Menu.Items>
+                    <MenuItem Header="File" >
+                        <MenuItem Header="New"      Click="NewFile"/>
+                        <MenuItem Header="Open"     Click="OpenFile"/>
+                        <MenuItem Header="Save"     Click="SaveFile" x:Name="_saveMenuItem"/>
+                        <MenuItem Header="Save As"  Click="SaveAsFile"/>
+                        
+                    </MenuItem>
+                    <MenuItem Header="Color">
+                        <MenuItem Header="Red"      Name="Red" Click="SetColor"/>
+                        <MenuItem Header="Blue"     Name="Blue" Click="SetColor"/>
+                        <MenuItem Header="Black"    Name="Black" Click="SetColor"/>
+                    </MenuItem>
+                    <MenuItem Header="Family">
+                        <MenuItem Header="Calibri" Click="SetFontFamily"/>
+                        <MenuItem Header="Times New Roman" Click="SetFontFamily"/>
+                        <MenuItem Header="Helvetica" Click="SetFontFamily"/>
+                    </MenuItem>
+                    <MenuItem Header="FontSize">
+                        <MenuItem Header="12" Click="SetFontSize"/>
+                        <MenuItem Header="16" Click="SetFontSize"/>
+                        <MenuItem Header="18" Click="SetFontSize"/>
+                    </MenuItem>
+                </Menu.Items>
+                
+            </Menu>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock x:Name="_textBlock"  DockPanel.Dock="Bottom" />
+            <TextBox x:Name="_textBox" DockPanel.Dock="Top" Margin="0,20,0,0" TextAlignment="Left" AcceptsTab="True" AcceptsReturn="True" TextChanged="OnType"/>
+        </DockPanel>
+    </Grid>
+</Window>
